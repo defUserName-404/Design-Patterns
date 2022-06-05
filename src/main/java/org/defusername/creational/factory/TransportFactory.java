@@ -12,12 +12,9 @@ public class TransportFactory {
 	}
 
 	public Transportation getTransport() {
-		if (logistics instanceof RoadLogistics) {
-			if (deliverySize == DeliverySize.SMALL)
-				transport = new PickupTruck();
-			else
-				transport = new Truck();
-		} else if (logistics instanceof SeaLogistics)
+		if (logistics instanceof RoadLogistics)
+			transport = (deliverySize == DeliverySize.SMALL) ? new PickupTruck() : new Truck();
+		else if (logistics instanceof SeaLogistics)
 			transport = new Ship();
 
 		return transport;
