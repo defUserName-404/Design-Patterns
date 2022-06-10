@@ -4,11 +4,11 @@ public class Robot {
 
 	private final String robotHead, robotTorso, robotArms, robotLegs;
 
-	private Robot(RobotBuilder robotBuilder) {
-		this.robotHead = robotBuilder.robotHead;
-		this.robotTorso = robotBuilder.robotTorso;
-		this.robotArms = robotBuilder.robotArms;
-		this.robotLegs = robotBuilder.robotLegs;
+	private Robot(Builder builder) {
+		this.robotHead = builder.robotHead;
+		this.robotTorso = builder.robotTorso;
+		this.robotArms = builder.robotArms;
+		this.robotLegs = builder.robotLegs;
 	}
 
 	public String getRobotHead() {
@@ -40,33 +40,26 @@ public class Robot {
 				"]";
 	}
 
-	public static class RobotBuilder {
+	public static class Builder {
 
 		private String robotHead, robotTorso, robotArms, robotLegs;
 
-		private RobotBuilder() {
-		}
-
-		public static RobotBuilder createNewRobotBuilder() {
-			return new RobotBuilder();
-		}
-
-		public RobotBuilder head(String head) {
+		public Builder head(String head) {
 			this.robotHead = head;
 			return this;
 		}
 
-		public RobotBuilder torso(String torso) {
+		public Builder torso(String torso) {
 			this.robotTorso = torso;
 			return this;
 		}
 
-		public RobotBuilder arms(String arms) {
+		public Builder arms(String arms) {
 			this.robotArms = arms;
 			return this;
 		}
 
-		public RobotBuilder legs(String legs) {
+		public Builder legs(String legs) {
 			this.robotLegs = legs;
 			return this;
 		}

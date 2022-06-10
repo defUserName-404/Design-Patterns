@@ -21,7 +21,7 @@ public class RobotEngineer {
 	}
 
 	public void buildRobot() {
-		Robot robot = Robot.RobotBuilder.createNewRobotBuilder()
+		Robot robot = new Robot.Builder()
 				.head(robotHead)
 				.torso(robotTorso)
 				.arms(robotArms)
