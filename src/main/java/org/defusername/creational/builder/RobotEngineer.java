@@ -2,20 +2,32 @@ package org.defusername.creational.builder;
 
 public class RobotEngineer {
 
-	private final RobotBuilder robotBuilder;
+	private String robotHead, robotTorso, robotArms, robotLegs;
 
-	public RobotEngineer(RobotBuilder robotBuilder) {
-		this.robotBuilder = robotBuilder;
+	public void setRobotHead(String robotHead) {
+		this.robotHead = robotHead;
 	}
 
-	public Robot getRobot() {
-		return robotBuilder.getRobot();
+	public void setRobotTorso(String robotTorso) {
+		this.robotTorso = robotTorso;
 	}
 
-	public void makeRobot() {
-		robotBuilder.buildRobotHead();
-		robotBuilder.buildRobotTorso();
-		robotBuilder.buildRobotArms();
-		robotBuilder.buildRobotLegs();
+	public void setRobotArms(String robotArms) {
+		this.robotArms = robotArms;
+	}
+
+	public void setRobotLegs(String robotLegs) {
+		this.robotLegs = robotLegs;
+	}
+
+	public void buildRobot() {
+		Robot robot = Robot.RobotBuilder.createNewRobotBuilder()
+				.head(robotHead)
+				.torso(robotTorso)
+				.arms(robotArms)
+				.legs(robotLegs)
+				.build();
+
+		System.out.println(robot);
 	}
 }
