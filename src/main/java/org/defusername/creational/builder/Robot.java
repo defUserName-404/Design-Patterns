@@ -2,7 +2,7 @@ package org.defusername.creational.builder;
 
 public class Robot {
 
-	private final String robotHead, robotTorso, robotArms, robotLegs;
+	private final RobotMaterial robotHead, robotTorso, robotArms, robotLegs;
 
 	private Robot(Builder builder) {
 		this.robotHead = builder.robotHead;
@@ -11,55 +11,55 @@ public class Robot {
 		this.robotLegs = builder.robotLegs;
 	}
 
-	public String getRobotHead() {
+	public RobotMaterial getRobotHead() {
 		return robotHead;
 	}
 
-	public String getRobotTorso() {
+	public RobotMaterial getRobotTorso() {
 		return robotTorso;
 	}
 
-	public String getRobotArms() {
+	public RobotMaterial getRobotArms() {
 		return robotArms;
 	}
 
-	public String getRobotLegs() {
+	public RobotMaterial getRobotLegs() {
 		return robotLegs;
 	}
 
 	@Override
 	public String toString() {
 		return "[head=" +
-				getRobotHead() +
+				robotHead +
 				",torso=" +
-				getRobotTorso() +
+				robotTorso +
 				",arms=" +
-				getRobotArms() +
+				robotArms +
 				",legs=" +
-				getRobotLegs() +
+				robotLegs +
 				"]";
 	}
 
 	public static class Builder {
 
-		private String robotHead, robotTorso, robotArms, robotLegs;
+		private RobotMaterial robotHead, robotTorso, robotArms, robotLegs;
 
-		public Builder head(String head) {
+		public Builder head(RobotMaterial head) {
 			this.robotHead = head;
 			return this;
 		}
 
-		public Builder torso(String torso) {
+		public Builder torso(RobotMaterial torso) {
 			this.robotTorso = torso;
 			return this;
 		}
 
-		public Builder arms(String arms) {
+		public Builder arms(RobotMaterial arms) {
 			this.robotArms = arms;
 			return this;
 		}
 
-		public Builder legs(String legs) {
+		public Builder legs(RobotMaterial legs) {
 			this.robotLegs = legs;
 			return this;
 		}
