@@ -3,7 +3,7 @@ package org.defusername.creational.factory_pattern.buttons;
 import javax.swing.*;
 import java.awt.*;
 
-public class WindowsButton implements Button {
+public class LinuxButton implements Button {
     private final JPanel panel = new JPanel();
     private final JFrame frame = new JFrame();
     JButton button;
@@ -11,7 +11,7 @@ public class WindowsButton implements Button {
     @Override
     public void render() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel label = new JLabel("Hello World");
+        JLabel label = new JLabel("Hello World From Linux");
         label.setOpaque(true);
         label.setBackground(new Color(235, 233, 129));
         label.setFont(new Font("Dialog", Font.BOLD, 40));
@@ -23,7 +23,6 @@ public class WindowsButton implements Button {
         panel.add(button);
         frame.setSize(400, 300);
         frame.setVisible(true);
-        onClick();
     }
 
     @Override

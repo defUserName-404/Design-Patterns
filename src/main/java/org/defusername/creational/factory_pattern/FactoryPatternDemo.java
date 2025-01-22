@@ -2,6 +2,7 @@ package org.defusername.creational.factory_pattern;
 
 import org.defusername.creational.factory_pattern.factory.Dialog;
 import org.defusername.creational.factory_pattern.factory.HtmlDialog;
+import org.defusername.creational.factory_pattern.factory.LinuxDialog;
 import org.defusername.creational.factory_pattern.factory.WindowsDialog;
 
 /**
@@ -22,6 +23,8 @@ public class FactoryPatternDemo {
     static void configure() {
         if (System.getProperty("os.name").equals("Windows 10")) {
             dialog = new WindowsDialog();
+        } else if (System.getProperty("os.name").equals("Linux")) {
+            dialog = new LinuxDialog();
         } else {
             dialog = new HtmlDialog();
         }
