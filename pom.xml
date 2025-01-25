@@ -7,6 +7,11 @@
     <groupId>org.defusername</groupId>
     <artifactId>Design-Patterns</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>abstract_factory_pattern</module>
+        <module>factory_pattern</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
