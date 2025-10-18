@@ -1,18 +1,18 @@
 package commands;
 
-import editor.Editor;
+import domain.EditorApi;
 
 public class PasteCommand extends Command {
 
-    public PasteCommand(Editor editor) {
+    public PasteCommand(EditorApi editor) {
         super(editor);
     }
 
     @Override
     public boolean execute() {
-        if (editor.clipboard == null || editor.clipboard.isEmpty()) return false;
+        if (editor.getClipboard() == null || editor.getClipboard().isEmpty()) return false;
         backup();
-        editor.textField.replaceSelection(editor.clipboard);
+        editor.getTextField().replaceSelection(editor.getClipboard());
         return true;
     }
 }
