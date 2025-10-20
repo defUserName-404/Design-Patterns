@@ -76,18 +76,18 @@ This example of the **Builder** pattern illustrates how you can reuse the same o
 different types of products, such as cars, and create the corresponding manuals for them.
 
 <img src="src/main/resources/example-en.png">
-<center><i>The example of step-by-step construction of cars and the user guides that that fit those car models.</i></center>
+<center><i>The example of step-by-step construction of cars and the user guides that that fit those cars models.</i></center>
 
-A car is a complex object that can be constructed in a hundred different ways. Instead of bloating the `Car` class with
+A cars is a complex object that can be constructed in a hundred different ways. Instead of bloating the `Car` class with
 a huge constructor, you can extract the assembly code into a separate `CarBuilder` class. This class has a set of
-methods for configuring a car.
+methods for configuring a cars.
 
-The client code can use the builder directly to create a custom car configuration.
+The client code can use the builder directly to create a custom cars configuration.
 
-But what if you need to create a car manual? The manual should describe every feature of the car, so the details of the
-manual depend on the car’s configuration. You can create another builder class, `CarManualBuilder`, that builds the
-manual instead of a car. Then you can pass this builder to the same director object to produce a manual for a specific
-car configuration.
+But what if you need to create a cars manual? The manual should describe every feature of the cars, so the details of the
+manual depend on the cars’s configuration. You can create another builder class, `CarManualBuilder`, that builds the
+manual instead of a cars. Then you can pass this builder to the same director object to produce a manual for a specific
+cars configuration.
 
 ```
 // Using the Builder pattern makes sense only when your products
@@ -95,14 +95,14 @@ car configuration.
 // following two products are related, although they don't have
 // a common interface.
 class Car is
-    // A car can have a GPS, trip computer and some number of
-    // seats. Different models of cars (sports car, SUV,
+    // A cars can have a GPS, trip computer and some number of
+    // seats. Different models of cars (sports cars, SUV,
     // cabriolet) might have different features installed or
     // enabled.
 
 class Manual is
-    // Each car should have a user manual that corresponds to
-    // the car's configuration and describes all its features.
+    // Each cars should have a user manual that corresponds to
+    // the cars's configuration and describes all its features.
 
 
 // The builder interface specifies methods for creating the
@@ -119,7 +119,7 @@ interface Builder is
 // program may have several variations of builders, each
 // implemented differently.
 class CarBuilder implements Builder is
-    private field car:Car
+    private field cars:Car
 
     // A fresh builder instance should contain a blank product
     // object which it uses in further assembly.
@@ -128,11 +128,11 @@ class CarBuilder implements Builder is
 
     // The reset method clears the object being built.
     method reset() is
-        this.car = new Car()
+        this.cars = new Car()
 
     // All production steps work with the same product instance.
     method setSeats(...) is
-        // Set the number of seats in the car.
+        // Set the number of seats in the cars.
 
     method setEngine(...) is
         // Install a given engine.
@@ -159,7 +159,7 @@ class CarBuilder implements Builder is
     // explicit reset call from the client code before disposing
     // of the previous result.
     method getProduct():Car is
-        product = this.car
+        product = this.cars
         this.reset()
         return product
 
@@ -175,7 +175,7 @@ class CarManualBuilder implements Builder is
         this.manual = new Manual()
 
     method setSeats(...) is
-        // Document car seat features.
+        // Document cars seat features.
 
     method setEngine(...) is
         // Add engine instructions.
@@ -222,7 +222,7 @@ class Application is
 
         CarBuilder builder = new CarBuilder()
         director.constructSportsCar(builder)
-        Car car = builder.getProduct()
+        Car cars = builder.getProduct()
 
         CarManualBuilder builder = new CarManualBuilder()
         director.constructSportsCar(builder)

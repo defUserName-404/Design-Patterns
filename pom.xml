@@ -12,6 +12,7 @@
         <module>abstract_factory_pattern</module>
         <module>factory_pattern</module>
         <module>command_pattern</module>
+        <module>builder_pattern</module>
     </modules>
 
     <properties>
