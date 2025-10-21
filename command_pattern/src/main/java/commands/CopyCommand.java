@@ -1,16 +1,16 @@
 package commands;
 
-import editor.Editor;
+import domain.EditorApi;
 
 public class CopyCommand extends Command {
 
-    public CopyCommand(Editor editor) {
+    public CopyCommand(EditorApi editor) {
         super(editor);
     }
 
     @Override
     public boolean execute() {
-        editor.clipboard = editor.textField.getSelectedText();
+        editor.setClipboard(editor.getTextField().getSelectedText());
         return false;
     }
 }

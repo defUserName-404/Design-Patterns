@@ -1,22 +1,22 @@
 package commands;
 
-import editor.Editor;
+import domain.EditorApi;
 
 public abstract class Command {
 
-    public Editor editor;
+    protected EditorApi editor;
     private String backup;
 
-    Command(Editor editor) {
+    protected Command(EditorApi editor) {
         this.editor = editor;
     }
 
     public void backup() {
-        backup = editor.textField.getText();
+        backup = editor.getTextField().getText();
     }
 
     public void undo() {
-        editor.textField.setText(backup);
+        editor.getTextField().setText(backup);
     }
 
     public abstract boolean execute();

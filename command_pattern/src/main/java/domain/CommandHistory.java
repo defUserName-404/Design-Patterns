@@ -1,4 +1,6 @@
-package commands;
+package domain;
+
+import commands.Command;
 
 import java.util.Stack;
 
